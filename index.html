@@ -130,6 +130,49 @@
     background-size: cover;
     background-repeat: repeat;
     background-attachment: fixed
+    }
+.glass-panel {
+    background: rgba(74, 0, 21, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    }
+.corner-brackets::before, .corner-brackets::after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-color: #d4af5a;
+    pointer-events: none;
+    }
+.corner-brackets::before {
+    top: 0;
+    left: 0;
+    border-top: 1px solid #d4af5a;
+    border-left: 1px solid #d4af5a;
+    }
+.corner-brackets::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 1px solid #d4af5a;
+    border-right: 1px solid #d4af5a;
+    }
+.shimmer-btn {
+    position: relative;
+    overflow: hidden;
+    }
+.shimmer-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+    transform: skewX(-20deg);
+    transition: all 0.5s ease;
+    }
+.shimmer-btn:hover::after {
+    left: 150%;
     }</style>
 <style>
     body {
@@ -154,8 +197,9 @@
 <a class="text-xs font-medium tracking-[0.2em] uppercase text-[#d0c5b2] hover:text-[#f2ca72] transition-colors" href="#services">Services</a>
 <a class="text-xs font-medium tracking-[0.2em] uppercase text-[#d0c5b2] hover:text-[#f2ca72] transition-colors" href="#about">About</a>
 <a class="text-xs font-medium tracking-[0.2em] uppercase text-[#d0c5b2] hover:text-[#f2ca72] transition-colors" href="#events">Events</a>
+<a class="text-xs font-medium tracking-[0.2em] uppercase text-[#d0c5b2] hover:text-[#f2ca72] transition-colors" href="#packages">Packages</a>
 <a class="text-xs font-medium tracking-[0.2em] uppercase text-[#d0c5b2] hover:text-[#f2ca72] transition-colors" href="#contact">Contact</a>
-<a class="bg-gradient-to-r from-[#f2ca72] to-[#d4af5a] text-[#3f2e00] px-6 py-2 rounded-full text-xs font-bold tracking-widest uppercase shimmer-effect" href="#contact">Book Us</a>
+<a class="bg-gradient-to-r from-[#f2ca72] to-[#d4af5a] text-[#3f2e00] px-6 py-2 rounded-full text-xs font-bold tracking-widest uppercase shimmer-effect" href="#packages">Book Us</a>
 </nav>
 <button class="md:hidden text-[#f2ca72]">
 <span class="material-symbols-outlined">menu</span>
@@ -180,7 +224,7 @@
 <h1 class="text-5xl md:text-8xl font-serif italic text-[#ffd9e1] mb-6 leading-tight">The Face of Your Event's Excellence.</h1>
 <p class="text-lg md:text-xl text-[#d4af5a] font-serif mb-10 italic">Uganda’s Premier Executive Ushering & Protocol Agency</p>
 <div class="flex flex-col items-center gap-8 mb-10">
-    <a class="inline-block bg-gradient-to-r from-[#f2ca72] to-[#d4af5a] text-[#3f2e00] px-10 py-4 rounded-full text-sm font-bold tracking-widest uppercase shimmer-effect shadow-xl" href="#contact">Request an Executive Team</a>
+    <a class="inline-block bg-gradient-to-r from-[#f2ca72] to-[#d4af5a] text-[#3f2e00] px-10 py-4 rounded-full text-sm font-bold tracking-widest uppercase shimmer-effect shadow-xl" href="#packages">Request an Executive Team</a>
     
     <div class="flex flex-wrap justify-center gap-6 md:gap-12 pt-8 border-t border-[#f2ca72]/40">
         <div class="flex items-center gap-2">
@@ -235,10 +279,14 @@
 </section>
 <section class="py-24 bg-[#340e1c]" id="services">
 <div class="max-w-7xl mx-auto px-6">
-<div class="mb-16">
-<p class="text-xs tracking-[0.3em] text-[#f2ca72] uppercase font-label mb-2">OUR SERVICES</p>
-<div class="w-16 h-[1px] bg-[#f2ca72]"></div>
-</div>
+<header class="text-center mb-24 max-w-3xl mx-auto">
+<h2 class="text-xs tracking-[0.4em] text-[#f2ca72] uppercase font-label mb-4">OUR EXPERTISE</h2>
+<h1 class="font-serif text-5xl md:text-6xl text-[#e9cd89] italic tracking-tight mb-6">Signature Services</h1>
+<div class="w-1/3 h-px bg-gradient-to-r from-transparent via-[#d4af5a] to-transparent mx-auto mb-8 opacity-50"></div>
+<p class="text-[#d0c5b2] text-lg leading-relaxed font-light">
+                Elevating every touchpoint of your event with our comprehensive suite of ushering and protocol solutions.
+            </p>
+</header>
 <div class="grid md:grid-cols-4 gap-8 mb-16">
 <div class="group glass p-8 min-h-[320px] transition-all duration-500 hover:-translate-y-4 hover:shadow-[0_20px_40px_rgba(242,202,114,0.1)] border-t border-[#d4af5a] relative">
 <span class="absolute top-4 right-4 text-5xl font-serif text-[#f2ca72]/10 font-bold">01</span>
@@ -269,11 +317,138 @@
 </section>
 
 
+
+
+<!-- VIP PACKAGES SECTION -->
+
+<section class="py-24 relative z-10" id="packages">
+<div class="max-w-7xl mx-auto px-6">
+<header class="text-center mb-24 max-w-3xl mx-auto">
+<h2 class="text-xs tracking-[0.4em] text-[#f2ca72] uppercase font-label mb-4">PRICING & FORMATIONS</h2>
+<h1 class="font-serif text-5xl md:text-6xl text-[#e9cd89] italic tracking-tight mb-6">VIP Packages</h1>
+<div class="w-1/3 h-px bg-gradient-to-r from-transparent via-[#d4af5a] to-transparent mx-auto mb-8 opacity-50"></div>
+<p class="text-[#d0c5b2] text-lg leading-relaxed font-light">
+                Curated formations of our elite ushers to ensure your event proceeds with immaculate precision and grace.
+            </p>
+        </header>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Package 1: The Intimate -->
+<div class="glass-panel relative p-8 group hover:-translate-y-2 transition-transform duration-500 border border-[#d4af5a]/20 hover:border-[#d4af5a]/50 flex flex-col corner-brackets">
+<div class="flex-grow">
+    <h3 class="font-serif text-2xl text-[#f2ca72] italic mb-2">The Intimate</h3>
+    <div class="flex items-baseline gap-2 mb-6">
+        <span class="text-3xl text-[#ffd9e1] font-light">750,000</span>
+<span class="text-xs text-[#d0c5b2]/70 uppercase tracking-widest">UGX</span>
+</div>
+<p class="text-sm text-[#d0c5b2] mb-8 leading-relaxed">Ideal for small corporate gatherings.</p>
+<ul class="space-y-4 mb-8">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#d4af5a] text-sm" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="text-sm text-[#d0c5b2]">5 Ushers</span>
+</li>
+</ul>
+</div>
+<button onclick="bookPackage('The Intimate', '750,000', '5')" class="w-full mt-auto shimmer-btn bg-gradient-to-br from-[#f2ca72] to-[#d4af5a] text-[#3f2e00] font-label uppercase tracking-[0.2em] text-[10px] py-4 rounded-full font-bold transition-all">
+    BOOK THIS TEAM
+                </button>
+</div>
+
+<!-- Package 2: The Standard -->
+<div class="glass-panel relative p-8 group hover:-translate-y-2 transition-transform duration-500 border border-[#d4af5a]/40 hover:border-[#d4af5a]/70 flex flex-col corner-brackets shadow-[0_10px_40px_-10px_rgba(13,0,3,0.5)] bg-[#522735]/40">
+    <div class="absolute top-0 right-0 bg-[#d4af5a] text-[#3f2e00] text-[9px] uppercase tracking-widest px-3 py-1 font-bold">Most Selected</div>
+    <div class="flex-grow">
+        <h3 class="font-serif text-2xl text-[#f2ca72] italic mb-2">The Standard</h3>
+<div class="flex items-baseline gap-2 mb-6">
+<span class="text-3xl text-[#ffd9e1] font-light">1,500,000</span>
+<span class="text-xs text-[#d0c5b2]/70 uppercase tracking-widest">UGX</span>
+</div>
+<p class="text-sm text-[#d0c5b2] mb-8 leading-relaxed">Perfect for mid-sized conferences.</p>
+<ul class="space-y-4 mb-8">
+    <li class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-[#d4af5a] text-sm" style="font-variation-settings: 'FILL' 1;">groups</span>
+        <span class="text-sm text-[#d0c5b2]">10 Ushers</span>
+    </li>
+</ul>
+</div>
+<button onclick="bookPackage('The Standard', '1,500,000', '10')" class="w-full mt-auto shimmer-btn bg-gradient-to-br from-[#f2ca72] to-[#d4af5a] text-[#3f2e00] font-label uppercase tracking-[0.2em] text-[10px] py-4 rounded-full font-bold transition-all shadow-[0_4px_15px_rgba(242,202,114,0.2)]">
+                    BOOK THIS TEAM
+                </button>
+            </div>
+
+            <!-- Package 3: The Grand -->
+            <div class="glass-panel relative p-8 group hover:-translate-y-2 transition-transform duration-500 border border-[#d4af5a]/20 hover:border-[#d4af5a]/50 flex flex-col corner-brackets">
+                <div class="flex-grow">
+                    <h3 class="font-serif text-2xl text-[#f2ca72] italic mb-2">The Grand</h3>
+                    <div class="flex items-baseline gap-2 mb-6">
+<span class="text-3xl text-[#ffd9e1] font-light">2,250,000</span>
+<span class="text-xs text-[#d0c5b2]/70 uppercase tracking-widest">UGX</span>
+</div>
+<p class="text-sm text-[#d0c5b2] mb-8 leading-relaxed">Designed for large summits and galas.</p>
+<ul class="space-y-4 mb-8">
+    <li class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-[#d4af5a] text-sm" style="font-variation-settings: 'FILL' 1;">groups</span>
+        <span class="text-sm text-[#d0c5b2]">15 Ushers</span>
+    </li>
+</ul>
+</div>
+<button onclick="bookPackage('The Grand', '2,250,000', '15')" class="w-full mt-auto shimmer-btn bg-gradient-to-br from-[#f2ca72] to-[#d4af5a] text-[#3f2e00] font-label uppercase tracking-[0.2em] text-[10px] py-4 rounded-full font-bold transition-all">
+                    BOOK THIS TEAM
+                </button>
+            </div>
+            
+<!-- Package 4: The Prestige -->
+<div class="glass-panel relative p-8 group hover:-translate-y-2 transition-transform duration-500 border border-[#d4af5a]/20 hover:border-[#d4af5a]/50 flex flex-col corner-brackets">
+<div class="flex-grow">
+<h3 class="font-serif text-2xl text-[#f2ca72] italic mb-2">The Prestige</h3>
+<div class="flex items-baseline gap-2 mb-6">
+    <span class="text-3xl text-[#ffd9e1] font-light">3,000,000</span>
+    <span class="text-xs text-[#d0c5b2]/70 uppercase tracking-widest">UGX</span>
+</div>
+<p class="text-sm text-[#d0c5b2] mb-8 leading-relaxed">For massive, high-profile events.</p>
+<ul class="space-y-4 mb-8">
+    <li class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-[#d4af5a] text-sm" style="font-variation-settings: 'FILL' 1;">groups</span>
+        <span class="text-sm text-[#d0c5b2]">20 Ushers</span>
+    </li>
+</ul>
+</div>
+<button onclick="bookPackage('The Prestige', '3,000,000', '20')" class="w-full mt-auto shimmer-btn bg-gradient-to-br from-[#f2ca72] to-[#d4af5a] text-[#3f2e00] font-label uppercase tracking-[0.2em] text-[10px] py-4 rounded-full font-bold transition-all">
+    BOOK THIS TEAM
+</button>
+</div>
+</div>
+
+<!-- Bespoke Section -->
+<div class="mt-16 w-full glass-panel p-10 border-t border-[#d4af5a] flex flex-col md:flex-row items-center justify-between gap-8 bg-[#340e1c]/50 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#522735]/20 to-transparent pointer-events-none"></div>
+    <div class="relative z-10 md:w-2/3 text-center md:text-left">
+        <h3 class="font-serif text-3xl text-[#e9cd89] italic mb-3">Bespoke Formation</h3>
+        <p class="text-[#d0c5b2] leading-relaxed">
+            Need more than 20 ushers? Let's discuss your custom floorplan to ensure comprehensive coverage across your venue.
+        </p>
+    </div>
+    <div class="relative z-10 w-full md:w-auto">
+        <button onclick="requestBespokeQuote()" class="w-full md:w-auto shimmer-btn bg-transparent border border-[#d4af5a] text-[#f2ca72] hover:bg-[#d4af5a] hover:text-[#3f2e00] font-label uppercase tracking-[0.2em] text-[10px] px-8 py-4 rounded-full font-bold transition-all duration-300">
+                    REQUEST QUOTE
+                </button>
+</div>
+</div>
+</div>
+</section>
+
 <!-- AURA EVENTS SECTION  -->
 
 <section class="py-24 marble-bg" id="events">
 <div class="max-w-7xl mx-auto px-6">
-<h2 class="text-center text-xs tracking-[0.4em] text-[#f2ca72] uppercase font-label mb-16">EVENTS WE SERVE</h2>
+<header class="text-center mb-24 max-w-3xl mx-auto">
+<h2 class="text-xs tracking-[0.4em] text-[#f2ca72] uppercase font-label mb-4">PORTFOLIO</h2>
+<h1 class="font-serif text-5xl md:text-6xl text-[#e9cd89] italic tracking-tight mb-6">Events We Serve</h1>
+<div class="w-1/3 h-px bg-gradient-to-r from-transparent via-[#d4af5a] to-transparent mx-auto mb-8 opacity-50"></div>
+<p class="text-[#d0c5b2] text-lg leading-relaxed font-light">
+                From high-stakes corporate summits to intimate luxury social gatherings, we adapt seamlessly to your unique atmosphere.
+            </p>
+</header>
 <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
 <div class="glass border border-[#d4af5a]/30 p-6 flex flex-col items-center text-center">
 <span class="material-symbols-outlined text-[#f2ca72] mb-4">business</span>
@@ -299,22 +474,21 @@
 </div>
 </section>
 
-
 <!-- INQUIRY SECTION (MOVED UP) -->
 
 <section class="py-24 marble-bg" id="contact">
 
-<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20">
+<div class="max-w-7xl mx-auto px-6">
+<header class="text-center mb-24 max-w-3xl mx-auto">
+<h2 class="text-xs tracking-[0.4em] text-[#f2ca72] uppercase font-label mb-4">CONNECT WITH US</h2>
+<h1 class="font-serif text-5xl md:text-6xl text-[#e9cd89] italic tracking-tight mb-6">Request an Executive Team</h1>
+<div class="w-1/3 h-px bg-gradient-to-r from-transparent via-[#d4af5a] to-transparent mx-auto mb-8 opacity-50"></div>
+<p class="text-[#d0c5b2] text-lg leading-relaxed font-light">
+                Every great event begins with a conversation. Reach out to discuss your vision and secure your elite ushering formation.
+            </p>
+</header>
+<div class="grid md:grid-cols-2 gap-20">
 <div>
-    <div class=" mb-10">
-
-        <p class="text-xs tracking-[0.3em] text-[#f2ca72] uppercase font-label mb-5">GET A QUOTE FOR YOUR EVENT</p>
-        
-        <div class="w-16  h-[1px] bg-[#f2ca72]"></div>
-    </div>
-
-
-<p class="text-lg md:text-2xl font-serif italic text-[#f2ca72] mb-8">Every great event begins with a conversation.</p>
 <div class="space-y-8">
 <div class="flex items-center gap-6">
 <div class="w-12 h-12 rounded-full glass flex items-center justify-center">
@@ -346,28 +520,33 @@
 </div>
 </div>
 <div class="glass p-10 border border-[#d4af5a]/20 corner-bracket">
-<form class="space-y-6">
+<form id="inquiryForm" class="space-y-6">
 <div>
 <label class="block text-[10px] tracking-[0.2em] uppercase text-[#f2ca72] mb-2 font-label">Full Name</label>
-<input class="w-full bg-[#23030e]/50 border-0 border-b border-[#d4af5a]/30 focus:border-[#f2ca72] focus:ring-0 text-[#d0c5b2] py-3 placeholder-[#d0c5b2]/30" placeholder="Your name" type="text"/>
+<input id="fullName" class="w-full bg-[#23030e]/50 border-0 border-b border-[#d4af5a]/30 focus:border-[#f2ca72] focus:ring-0 text-[#d0c5b2] py-3 placeholder-[#d0c5b2]/30" placeholder="Your name" type="text" required/>
 </div>
 <div>
 <label class="block text-[10px] tracking-[0.2em] uppercase text-[#f2ca72] mb-2 font-label">Email Address</label>
-<input class="w-full bg-[#23030e]/50 border-0 border-b border-[#d4af5a]/30 focus:border-[#f2ca72] focus:ring-0 text-[#d0c5b2] py-3 placeholder-[#d0c5b2]/30" placeholder="email@example.com" type="email"/>
+<input id="email" class="w-full bg-[#23030e]/50 border-0 border-b border-[#d4af5a]/30 focus:border-[#f2ca72] focus:ring-0 text-[#d0c5b2] py-3 placeholder-[#d0c5b2]/30" placeholder="email@example.com" type="email" required/>
+</div>
+<div>
+<label class="block text-[10px] tracking-[0.2em] uppercase text-[#f2ca72] mb-2 font-label">Phone Number</label>
+<input id="phone" class="w-full bg-[#23030e]/50 border-0 border-b border-[#d4af5a]/30 focus:border-[#f2ca72] focus:ring-0 text-[#d0c5b2] py-3 placeholder-[#d0c5b2]/30" placeholder="+256 700 000 000" type="tel" required/>
 </div>
 <div>
 <label class="block text-[10px] tracking-[0.2em] uppercase text-[#f2ca72] mb-2 font-label">Service Needed</label>
-<select class="w-full bg-[#23030e]/50 border-0 border-b border-[#d4af5a]/30 focus:border-[#f2ca72] focus:ring-0 text-[#d0c5b2] py-3">
-<option>Corporate Protocol</option>
-<option>VIP Guest Handling</option>
-<option>Registration Desk Support</option>
-<option>High-Traffic Crowd Management</option>
-<option>Social Event Ushering</option>
+<select id="service" class="w-full bg-[#23030e]/50 border-0 border-b border-[#d4af5a]/30 focus:border-[#f2ca72] focus:ring-0 text-[#d0c5b2] py-3" required>
+<option value="Corporate Protocol">Corporate Protocol</option>
+<option value="VIP Guest Handling">VIP Guest Handling</option>
+<option value="Registration Desk Support">Registration Desk Support</option>
+<option value="High-Traffic Crowd Management">High-Traffic Crowd Management</option>
+<option value="Social Event Ushering">Social Event Ushering</option>
+<option value="Other">Other</option>
 </select>
 </div>
 <div>
 <label class="block text-[10px] tracking-[0.2em] uppercase text-[#f2ca72] mb-2 font-label">Message</label>
-<textarea class="w-full bg-[#23030e]/50 border-0 border-b border-[#d4af5a]/30 focus:border-[#f2ca72] focus:ring-0 text-[#d0c5b2] py-3 placeholder-[#d0c5b2]/30" placeholder="Tell us about your event..." rows="4"></textarea>
+<textarea id="message" class="w-full bg-[#23030e]/50 border-0 border-b border-[#d4af5a]/30 focus:border-[#f2ca72] focus:ring-0 text-[#d0c5b2] py-3 placeholder-[#d0c5b2]/30" placeholder="Tell us about your event..." rows="4" required></textarea>
 </div>
 <button class="w-full bg-[#f2ca72] text-[#3f2e00] py-4 rounded-full font-bold tracking-widest uppercase shimmer-effect" type="submit">Send Enquiry</button>
 </form>
@@ -380,7 +559,14 @@
 
 <section class="py-24 bg-[#23030e]">
 <div class="max-w-7xl mx-auto px-6">
-<h2 class="text-center text-xs tracking-[0.4em] text-[#f2ca72] uppercase font-label mb-16">PROCESS OF EXCELLENCE</h2>
+<header class="text-center mb-24 max-w-3xl mx-auto">
+<h2 class="text-xs tracking-[0.4em] text-[#f2ca72] uppercase font-label mb-4">OUR METHODOLOGY</h2>
+<h1 class="font-serif text-5xl md:text-6xl text-[#e9cd89] italic tracking-tight mb-6">Process of Excellence</h1>
+<div class="w-1/3 h-px bg-gradient-to-r from-transparent via-[#d4af5a] to-transparent mx-auto mb-8 opacity-50"></div>
+<p class="text-[#d0c5b2] text-lg leading-relaxed font-light">
+                A seamless, three-step journey from your initial inquiry to our flawless execution on the day of your event.
+            </p>
+</header>
 <div class="flex flex-col md:flex-row justify-between items-start gap-12 relative">
 <div class="hidden md:block absolute top-10 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#f2ca72]/30 to-transparent z-0"></div>
 <div class="relative z-10 flex-1 text-center md:text-left">
@@ -426,6 +612,14 @@
 <div class="absolute inset-0 bg-[#290614]/90"></div>
 </div>
 <div class="relative z-10 max-w-7xl mx-auto px-6">
+<header class="text-center mb-24 max-w-3xl mx-auto">
+<h2 class="text-xs tracking-[0.4em] text-[#f2ca72] uppercase font-label mb-4">CLIENT EXPERIENCES</h2>
+<h1 class="font-serif text-5xl md:text-6xl text-[#e9cd89] italic tracking-tight mb-6">Words of Excellence</h1>
+<div class="w-1/3 h-px bg-gradient-to-r from-transparent via-[#d4af5a] to-transparent mx-auto mb-8 opacity-50"></div>
+<p class="text-[#d0c5b2] text-lg leading-relaxed font-light">
+                Hear from the organizations and individuals who have entrusted their most important moments to Aura Executives.
+            </p>
+</header>
 <div class="grid md:grid-cols-3 gap-12">
 <div class="glass p-10 border-t border-[#d4af5a]/50">
 <span class="text-6xl text-[#f2ca72]/20 font-serif leading-none">“</span>
@@ -476,4 +670,36 @@
 </a>
 </div>
 
+<script>
+document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const fullName = document.getElementById('fullName').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const service = document.getElementById('service').value;
+    const message = document.getElementById('message').value;
+    
+    const text = `*New Enquiry from Aura Website*\nName: ${fullName}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nMessage: ${message}`;
+    
+    const encodedText = encodeURIComponent(text);
+    const whatsappUrl = `https://wa.me/256750432982?text=${encodedText}`;
+    
+    window.open(whatsappUrl, '_blank');
+});
+
+function bookPackage(packageName, price, ushers) {
+    const text = `*New VIP Package Booking*\nPackage: ${packageName}\nPrice: ${price} UGX\nTeam Size: ${ushers} Ushers\n\nI would like to proceed with booking this team for my event.`;
+    const encodedText = encodeURIComponent(text);
+    const whatsappUrl = `https://wa.me/256750432982?text=${encodedText}`;
+    window.open(whatsappUrl, '_blank');
+}
+
+function requestBespokeQuote() {
+    const text = `*Bespoke Formation Inquiry*\n\nI am interested in a custom team formation (more than 20 ushers). I would like to discuss a custom floorplan and receive a quote for my upcoming event.`;
+    const encodedText = encodeURIComponent(text);
+    const whatsappUrl = `https://wa.me/256750432982?text=${encodedText}`;
+    window.open(whatsappUrl, '_blank');
+}
+</script>
 </body></html>

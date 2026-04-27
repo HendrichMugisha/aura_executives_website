@@ -201,10 +201,40 @@
 <a class="text-xs font-medium tracking-[0.2em] uppercase text-[#d0c5b2] hover:text-[#f2ca72] transition-colors" href="#contact">Contact</a>
 <a class="bg-gradient-to-r from-[#f2ca72] to-[#d4af5a] text-[#3f2e00] px-6 py-2 rounded-full text-xs font-bold tracking-widest uppercase shimmer-effect" href="#packages">Book Us</a>
 </nav>
-<button class="md:hidden text-[#f2ca72]">
+<button id="menuBtn" class="md:hidden text-[#f2ca72]">
 <span class="material-symbols-outlined">menu</span>
 </button>
 </header>
+
+<!-- MOBILE MENU OVERLAY -->
+<div id="mobileMenu" class="fixed inset-0 z-[60] bg-[#1A0008E6] backdrop-blur-2xl translate-x-full transition-transform duration-500 ease-in-out md:hidden flex flex-col p-8">
+    <div class="flex justify-between items-center mb-16">
+        <div class="flex items-center gap-4">
+            <img src="logo.png" alt="AURA EXECUTIVES Logo" class="h-8 w-auto">
+            <span class="text-lg font-bold tracking-[0.2em] text-[#f2ca72] font-label">AURA</span>
+        </div>
+        <button id="closeMenu" class="w-12 h-12 rounded-full border border-[#f2ca72]/20 flex items-center justify-center text-[#f2ca72]">
+            <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+    </div>
+    
+    <nav class="flex flex-col gap-10 items-center text-center">
+        <a class="mobile-link text-2xl font-serif italic tracking-[0.1em] text-[#ffd9e1] hover:text-[#f2ca72] transition-colors" href="#services">Services</a>
+        <a class="mobile-link text-2xl font-serif italic tracking-[0.1em] text-[#ffd9e1] hover:text-[#f2ca72] transition-colors" href="#about">About</a>
+        <a class="mobile-link text-2xl font-serif italic tracking-[0.1em] text-[#ffd9e1] hover:text-[#f2ca72] transition-colors" href="#events">Events</a>
+        <a class="mobile-link text-2xl font-serif italic tracking-[0.1em] text-[#ffd9e1] hover:text-[#f2ca72] transition-colors" href="#packages">Packages</a>
+        <a class="mobile-link text-2xl font-serif italic tracking-[0.1em] text-[#ffd9e1] hover:text-[#f2ca72] transition-colors" href="#contact">Contact</a>
+        
+        <div class="w-24 h-px bg-gradient-to-r from-transparent via-[#f2ca72]/40 to-transparent my-2"></div>
+        
+        <a class="mobile-link bg-gradient-to-r from-[#f2ca72] to-[#d4af5a] text-[#3f2e00] w-full py-5 rounded-full text-xs font-bold tracking-[0.2em] uppercase shimmer-effect text-center shadow-2xl" href="#packages">Book Us</a>
+    </nav>
+    
+    <div class="mt-auto text-center border-t border-[#f2ca72]/10 pt-8">
+        <p class="text-[9px] tracking-[0.5em] text-[#f2ca72] uppercase font-label mb-2">Excellence · Discipline · Grace</p>
+        <p class="text-[8px] tracking-[0.2em] text-[#d0c5b2]/40 uppercase">Aura Executives Official</p>
+    </div>
+</div>
 
 
 <!-- THE HERO SECTION  -->
@@ -686,6 +716,26 @@ document.getElementById('inquiryForm').addEventListener('submit', function(e) {
     const whatsappUrl = `https://wa.me/256750432982?text=${encodedText}`;
     
     window.open(whatsappUrl, '_blank');
+});
+
+// MOBILE MENU LOGIC
+const menuBtn = document.getElementById('menuBtn');
+const closeMenu = document.getElementById('closeMenu');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+
+menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('translate-x-full');
+});
+
+closeMenu.addEventListener('click', () => {
+    mobileMenu.classList.add('translate-x-full');
+});
+
+mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.add('translate-x-full');
+    });
 });
 
 function bookPackage(packageName, price, ushers) {
